@@ -123,7 +123,6 @@
 
 <script> 
     $(document).ready(function(){
-        var counter = 4;
         var apiKey = "cc74a539";
         var movie = "Aquaman";
         var year = "2018";
@@ -170,10 +169,7 @@
                 
                 
                 miniMe.find('#movie-plot').text(data.Plot);
-                console.log(data.Plot.length);
                 miniMe.attr('data-filtertext', ''+String(data.Genre));
-                miniMe.attr('class','filterDiv'+counter)
-                counter = counter +1;
 
                 miniMe.find('button').click(function(){
                     miniMe.remove();
@@ -194,8 +190,6 @@
                 miniMe.show();
                 $('#restore').show();
                 $('#change-view').show();
-                var $theseLI = $('#result-list').children();
-                console.log($theseLI);
                 document.getElementById("restore").disabled = true;
                 document.getElementById("change-view").disabled = false;
         }
@@ -222,7 +216,6 @@
         $('#restore').click(function(){     
             $.each($("ul").find("li"),function() {
                 $(this).find('#poster').css('height', '100%');
-                $(this).find('#poster').css('widht', '100%');
                 $(this).find('#movie-title').after($(this).find('#rating'));
                 $(this).find('#movie-plot').css('font-weight', '700');
                 $(this).find('#rating').css('float', 'left');
@@ -234,8 +227,7 @@
         
         $('#change-view').click(function(){
             $.each($("ul").find("li"),function() {
-                $(this).find('#poster').css('height', '85%');
-                $(this).find('#poster').css('widht', '100%');
+                $(this).find('#poster').css('height', '90%');
                 $(this).find('#rating').css('float', 'none');
                 $(this).find('#poster').before($(this).find('#rating'));
                 $(this).find('#movie-plot').css('font-weight', 'lighter');
